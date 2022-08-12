@@ -19,5 +19,12 @@ namespace Ahoy.Hotel.EntityFramework.Core
 
         }
 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Hotel.Core.Models.Hotel>()
+                .HasMany(e => e.HotelFacility);
+        }
+
     }
 }

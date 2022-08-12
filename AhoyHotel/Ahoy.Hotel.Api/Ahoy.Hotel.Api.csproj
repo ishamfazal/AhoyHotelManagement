@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.28" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.28">
       <PrivateAssets>all</PrivateAssets>
@@ -21,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ahoy.Hotel.EntityFramework\Ahoy.Hotel.EntityFramework.csproj" />
+    <ProjectReference Include="..\Ahoy.Hotel.Repository\Ahoy.Hotel.Repository.csproj" />
   </ItemGroup>
 
 
