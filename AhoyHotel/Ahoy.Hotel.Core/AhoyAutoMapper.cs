@@ -11,9 +11,10 @@ namespace Ahoy.Hotel.Core
     {
         public AhoyAutoMapper()
         {
-            CreateMap<Models.Hotel, HotelDto>();
-            CreateMap<Facility, FacilityDto>();
-            CreateMap<HotelFacility, HotelFacilityDto>();
+            //while mapping convert utc datetime to local timezone value
+            CreateMap<Models.Hotel, HotelDto>().ForMember(x => x.CreatedOn, op => op.MapFrom(i => i.CreatedOn.ToLocalTime())).ReverseMap();
+            CreateMap<Facility, FacilityDto>().ReverseMap();
+            CreateMap<HotelFacility, HotelFacilityDto>().ReverseMap();
         }
     }
 }
