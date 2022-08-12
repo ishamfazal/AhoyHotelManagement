@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ahoy.Hotel.Core\Ahoy.Hotel.Core.csproj" />
     <ProjectReference Include="..\Ahoy.Hotel.EntityFramework\Ahoy.Hotel.EntityFramework.csproj" />
   </ItemGroup>
 
