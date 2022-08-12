@@ -4,3 +4,7 @@
 /AhoyHotel/Ahoy.Hotel.UnitTest/bin
 /AhoyHotel/.vs
 /AhoyHotel/Ahoy.Hotel.Api/Logs
+/AhoyHotel/Ahoy.Hotel.EntityFramework/bin
+/AhoyHotel/Ahoy.Hotel.EntityFramework/obj
+/AhoyHotel/Ahoy.Hotel.Core/bin
+/AhoyHotel/Ahoy.Hotel.Core/obj
