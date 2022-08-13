@@ -17,7 +17,7 @@ namespace Ahoy.Hotel.Core.Dtos
         public bool IsActive { get; set; }
 
 
-        //public List<FacilityDto>? Facilities { get; set; }
+        //public List<FacilityDto> Facilities { get; set; }
         public List<HotelFacilityDto> HotelFacility { get; set; }
     }
 }

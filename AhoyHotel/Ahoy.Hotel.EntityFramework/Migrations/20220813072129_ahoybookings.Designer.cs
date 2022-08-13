@@ -4,14 +4,16 @@ using Ahoy.Hotel.EntityFramework.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Ahoy.Hotel.EntityFramework.Migrations
 {
     [DbContext(typeof(AhoyHotelContext))]
-    partial class AhoyHotelContextModelSnapshot : ModelSnapshot
+    [Migration("20220813072129_ahoybookings")]
+    partial class ahoybookings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

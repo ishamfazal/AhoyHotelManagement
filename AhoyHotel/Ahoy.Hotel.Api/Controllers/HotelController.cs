@@ -1,4 +1,4 @@
-﻿using Ahoy.Hotel.Repository.Interfaces;
+﻿using Ahoy.Hotel.Api.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,18 +11,24 @@ namespace Ahoy.Hotel.Api.Controllers
     public class HotelController : ControllerBase
     {
         private readonly IMapper _mapper;
-        private readonly IHotelRepository _hotelRepository;
+        private readonly IHotelService _hotelService;
 
-        public HotelController(IMapper mapper, IHotelRepository hotelRepository)
+        public HotelController(IMapper mapper, IHotelService hotelService)
         {
             _mapper = mapper;
-            _hotelRepository = hotelRepository;
+            _hotelService = hotelService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _hotelRepository.GetAll());
+            return Ok(await _hotelService.GetAll());
+        }
+
+        [HttpGet("GetById")]
+        public async Task<IActionResult> GetById(int hotelId)
+        {
+            return Ok(await _hotelService.Get(hotelId));
         }
     }
 }

@@ -1,12 +1,10 @@
 ﻿using Ahoy.Hotel.Core.Dtos;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Ahoy.Hotel.Repository.Interfaces
+namespace Ahoy.Hotel.Api.Services
 {
-    public interface IHotelRepository
+    public interface IHotelService
     {
         Task<List<HotelDto>> GetAll();
 

@@ -25,5 +25,9 @@
     <ProjectReference Include="..\Ahoy.Hotel.Repository\Ahoy.Hotel.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Filters\" />
+  </ItemGroup>
+
 
 </Project>

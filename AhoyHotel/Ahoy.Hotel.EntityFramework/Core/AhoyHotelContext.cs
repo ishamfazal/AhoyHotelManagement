@@ -12,6 +12,7 @@ namespace Ahoy.Hotel.EntityFramework.Core
         public DbSet<Hotel.Core.Models.Hotel> Hotel { get; set; }
         public DbSet<HotelFacility> HotelFacility { get; set; }
         public DbSet<Facility> Facility { get; set; }
+        public DbSet<Booking> Booking { get; set; }
 
 
         public AhoyHotelContext(DbContextOptions options) : base(options)
