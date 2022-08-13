@@ -16,6 +16,8 @@ namespace Ahoy.Hotel.Core.Dtos
         public DateTime CreatedOn { get; set; }
         public bool IsActive { get; set; }
 
+
+        //public List<FacilityDto>? Facilities { get; set; }
         public List<HotelFacilityDto> HotelFacility { get; set; }
     }
 }

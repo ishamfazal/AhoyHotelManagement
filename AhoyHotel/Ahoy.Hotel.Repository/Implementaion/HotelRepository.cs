@@ -2,6 +2,7 @@
 using Ahoy.Hotel.EntityFramework.Core;
 using Ahoy.Hotel.Repository.Interfaces;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Ahoy.Hotel.Repository.Implementaion
 
         public async Task<List<HotelDto>> GetAll()
         {
-            var result = _dbContext.Hotel.ToList();
+            var result = await _dbContext.Hotel.Include(x => x.HotelFacility).ThenInclude(x => x.Facility).ToListAsync();
             return _mapper.Map<List<HotelDto>>(result);
         }
     }
