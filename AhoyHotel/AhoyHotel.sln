@@ -5,15 +5,15 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ahoy.Hotel.Api", "Ahoy.Hotel.Api\Ahoy.Hotel.Api.csproj", "{EAB24D58-A0A6-471A-89EF-F46679898440}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ahoy.Hotel.UnitTest", "Ahoy.Hotel.UnitTest\Ahoy.Hotel.UnitTest.csproj", "{091B6D41-3749-4B98-94A7-19275D8A9655}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ahoy.Hotel.EntityFramework", "Ahoy.Hotel.EntityFramework\Ahoy.Hotel.EntityFramework.csproj", "{76A03798-4D85-4CE0-B95F-752D00367214}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ahoy.Hotel.Core", "Ahoy.Hotel.Core\Ahoy.Hotel.Core.csproj", "{568AA54D-D0DF-41FA-9CAD-F4A7EFE35FD5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ahoy.Hotel.Repository", "Ahoy.Hotel.Repository\Ahoy.Hotel.Repository.csproj", "{5F2A74E3-F6AF-4A04-9075-FF4974652CD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ahoy.Hotel.Service", "Ahoy.Hotel.Service\Ahoy.Hotel.Service.csproj", "{5C384A13-00B6-45E0-A873-6E1A50F61DA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ahoy.Hotel.Service", "Ahoy.Hotel.Service\Ahoy.Hotel.Service.csproj", "{5C384A13-00B6-45E0-A873-6E1A50F61DA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ahoy.Hotel.UnitTest", "Ahoy.Hotel.UnitTest\Ahoy.Hotel.UnitTest.csproj", "{3FB72951-59D8-465E-8026-F8EB3818C022}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		{EAB24D58-A0A6-471A-89EF-F46679898440}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAB24D58-A0A6-471A-89EF-F46679898440}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAB24D58-A0A6-471A-89EF-F46679898440}.Release|Any CPU.Build.0 = Release|Any CPU
-		{091B6D41-3749-4B98-94A7-19275D8A9655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{091B6D41-3749-4B98-94A7-19275D8A9655}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{091B6D41-3749-4B98-94A7-19275D8A9655}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{091B6D41-3749-4B98-94A7-19275D8A9655}.Release|Any CPU.Build.0 = Release|Any CPU
 		{76A03798-4D85-4CE0-B95F-752D00367214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{76A03798-4D85-4CE0-B95F-752D00367214}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76A03798-4D85-4CE0-B95F-752D00367214}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{5C384A13-00B6-45E0-A873-6E1A50F61DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C384A13-00B6-45E0-A873-6E1A50F61DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C384A13-00B6-45E0-A873-6E1A50F61DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FB72951-59D8-465E-8026-F8EB3818C022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FB72951-59D8-465E-8026-F8EB3818C022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FB72951-59D8-465E-8026-F8EB3818C022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FB72951-59D8-465E-8026-F8EB3818C022}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
