@@ -1,4 +1,3 @@
-using Ahoy.Hotel.Api.Filters;
 using Ahoy.Hotel.Api.Services;
 using Ahoy.Hotel.Core;
 using Ahoy.Hotel.EntityFramework.Core;
@@ -37,7 +36,7 @@ namespace Ahoy.Hotel.Api
             services.AddCors();
             services.AddHttpContextAccessor();
             //add exception filter and validation exception result
-            services.AddControllers(options => options.Filters.Add(new ExceptionFilter()))
+            services.AddControllers()
                 .ConfigureApiBehaviorOptions(options =>
                                                 {
                                                     options.InvalidModelStateResponseFactory = context =>
@@ -98,7 +97,7 @@ namespace Ahoy.Hotel.Api
                             .AllowCredentials()); // allow credentials
 
 
-        
+
             app.UseAuthentication();
             app.UseAuthorization();
 

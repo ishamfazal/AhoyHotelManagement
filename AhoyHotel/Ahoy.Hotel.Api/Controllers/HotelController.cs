@@ -24,5 +24,11 @@ namespace Ahoy.Hotel.Api.Controllers
         {
             return Ok(await _hotelService.GetAll());
         }
+
+        [HttpGet("GetById")]
+        public async Task<IActionResult> GetById(int hotelId)
+        {
+            return Ok(await _hotelService.Get(hotelId));
+        }
     }
 }
