@@ -68,6 +68,8 @@ namespace Ahoy.Hotel.Api
             services.AddAutoMapper(typeof(AhoyAutoMapper));
             services.AddScoped<IHotelRepository, HotelRepository>();
             services.AddScoped<IHotelService, HotelService>();
+            services.AddScoped<IBookingService, BookingService>();
+            services.AddScoped<IBookingRepository, BookingRepository>();
 
             services.AddSwaggerGen(c =>
             {
