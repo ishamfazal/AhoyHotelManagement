@@ -1,4 +1,5 @@
 ﻿using Ahoy.Hotel.Core.Dtos;
+using Ahoy.Hotel.Core.Utilities;
 using Ahoy.Hotel.EntityFramework.Core;
 using Ahoy.Hotel.Repository.Interfaces;
 using AutoMapper;
@@ -22,17 +23,37 @@ namespace Ahoy.Hotel.Repository.Implementaion
             _mapper = mapper;
         }
 
-
-        public async Task<List<HotelDto>> GetAll()
+        /// <summary>
+        /// Get All Hotels/ Search by title
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public PagedResponsResult<HotelDto> GetAll(string title = "", int page = 1, int pageSize = 20)
         {
-            var result = await _dbContext.Hotel.Include(x => x.HotelFacility).ThenInclude(x => x.Facility).ToListAsync();
-            return _mapper.Map<List<HotelDto>>(result);
+            var result = _dbContext.Hotel.Include(x => x.HotelFacility).ThenInclude(x => x.Facility);
+            IQueryable<Core.Models.Hotel> query = null;
+            if (!string.IsNullOrEmpty(title))
+            {
+                query = result.Where(x => !x.IsDelete && x.IsActive && x.Title.ToLower().Contains(title.ToLower()));
+            }
+            else
+            {
+                query = result.Where(x => !x.IsDelete && x.IsActive);
+            }
+            var response = query.GetPaged(page, pageSize);
+            return _mapper.Map<PagedResponsResult<HotelDto>>(response);
         }
 
-
+        /// <summary>
+        /// Get Hotel Details by Id
+        /// </summary>
+        /// <param name="hotelId"></param>
+        /// <returns></returns>
         public async Task<HotelDto> Get(int hotelId)
         {
-            var result = await _dbContext.Hotel.Include(x => x.HotelFacility).ThenInclude(x => x.Facility).FirstOrDefaultAsync(x => x.HotelId == hotelId);
+            var result = await _dbContext.Hotel.Include(x => x.HotelFacility).ThenInclude(x => x.Facility).FirstOrDefaultAsync(x => !x.IsDelete && x.IsActive && x.HotelId == hotelId);
             return _mapper.Map<HotelDto>(result);
         }
     }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Ahoy.Hotel.Core.Utilities
 {
@@ -12,9 +13,8 @@ namespace Ahoy.Hotel.Core.Utilities
 
         public static string GenerateBookingReference()
         {
-            var rand = new Random();
             var currentDate = DateTime.Now;
-            var result = $"{currentDate.Year}{currentDate.Month}{currentDate.Date}{currentDate.Hour}{currentDate.Minute}{currentDate.Second}{rand.Next()}";
+            var result = $"{currentDate.ToString("yyyy")}{currentDate.ToString("MM")}{currentDate.ToString("dd")}{currentDate.ToString("hh")}{currentDate.ToString("mm")}{currentDate.ToString("ss")}";
             return result;
         }
 
@@ -32,5 +32,11 @@ namespace Ahoy.Hotel.Core.Utilities
 
             return value.ToString();
         }
+
+        public static string MapBookingEnum(BookingEnum value)
+        {
+            return value.ToString();
+        }
+
     }
 }

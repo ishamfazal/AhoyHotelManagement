@@ -64,7 +64,11 @@ namespace Ahoy.Hotel.Api
 
             //Dependency Injections
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddDbContext<AhoyHotelContext>(options => options.UseSqlServer(Configuration.GetConnectionString(HotelConst.ConnectionStringName)));
+            services.AddDbContext<AhoyHotelContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString(HotelConst.ConnectionStringName));
+                options.EnableSensitiveDataLogging();
+            });
             services.AddAutoMapper(typeof(AhoyAutoMapper));
             services.AddScoped<IHotelRepository, HotelRepository>();
             services.AddScoped<IHotelService, HotelService>();

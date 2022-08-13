@@ -10,19 +10,17 @@ namespace Ahoy.Hotel.Api.Controllers
     [Route("[controller]")]
     public class HotelController : ControllerBase
     {
-        private readonly IMapper _mapper;
         private readonly IHotelService _hotelService;
 
-        public HotelController(IMapper mapper, IHotelService hotelService)
+        public HotelController(IHotelService hotelService)
         {
-            _mapper = mapper;
             _hotelService = hotelService;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get(string title = "", int page = 1, int pageSize = 20)
         {
-            return Ok(await _hotelService.GetAll());
+            return Ok(_hotelService.GetAll(title, page, pageSize));
         }
 
         [HttpGet("GetById")]

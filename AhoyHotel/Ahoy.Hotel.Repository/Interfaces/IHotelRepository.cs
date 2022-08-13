@@ -8,7 +8,7 @@ namespace Ahoy.Hotel.Repository.Interfaces
 {
     public interface IHotelRepository
     {
-        Task<List<HotelDto>> GetAll();
+        PagedResponsResult<HotelDto> GetAll(string title = "", int page = 1, int pageSize = 20);
 
         Task<HotelDto> Get(int hotelId);
     }
