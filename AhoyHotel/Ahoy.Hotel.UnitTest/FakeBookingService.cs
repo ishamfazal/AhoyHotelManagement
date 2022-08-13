@@ -1,4 +1,5 @@
-﻿using Ahoy.Hotel.Core.Dtos;
+﻿using Ahoy.Hotel.Core;
+using Ahoy.Hotel.Core.Dtos;
 using Ahoy.Hotel.Core.Utilities;
 using Ahoy.Hotel.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
