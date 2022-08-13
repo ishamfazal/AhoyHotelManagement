@@ -1,11 +1,15 @@
+using Ahoy.Hotel.Api.Filters;
+using Ahoy.Hotel.Api.Services;
 using Ahoy.Hotel.Core;
 using Ahoy.Hotel.EntityFramework.Core;
 using Ahoy.Hotel.Repository.Implementaion;
 using Ahoy.Hotel.Repository.Interfaces;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +17,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
+using System.Net.Mime;
 
 namespace Ahoy.Hotel.Api
 {
@@ -31,8 +36,19 @@ namespace Ahoy.Hotel.Api
 
             services.AddCors();
             services.AddHttpContextAccessor();
-
-            services.AddControllers().AddNewtonsoftJson(options =>
+            //add exception filter and validation exception result
+            services.AddControllers(options => options.Filters.Add(new ExceptionFilter()))
+                .ConfigureApiBehaviorOptions(options =>
+                                                {
+                                                    options.InvalidModelStateResponseFactory = context =>
+                                                    {
+                                                        var result = new BadRequestObjectResult(context.ModelState);
+                                                        result.ContentTypes.Add(MediaTypeNames.Application.Json);
+                                                        result.ContentTypes.Add(MediaTypeNames.Application.Xml);
+                                                        return result;
+                                                    };
+                                                })
+                .AddNewtonsoftJson(options =>
                   options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
               );
 
@@ -50,8 +66,9 @@ namespace Ahoy.Hotel.Api
             //Dependency Injections
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddDbContext<AhoyHotelContext>(options => options.UseSqlServer(Configuration.GetConnectionString(HotelConst.ConnectionStringName)));
-            services.AddScoped<IHotelRepository, HotelRepository>();
             services.AddAutoMapper(typeof(AhoyAutoMapper));
+            services.AddScoped<IHotelRepository, HotelRepository>();
+            services.AddScoped<IHotelService, HotelService>();
 
             services.AddSwaggerGen(c =>
             {
@@ -69,11 +86,7 @@ namespace Ahoy.Hotel.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
+            app.UseExceptionHandler("/error");
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -81,9 +94,11 @@ namespace Ahoy.Hotel.Api
             app.UseCors(x => x
                             .AllowAnyMethod()
                             .AllowAnyHeader()
-                            .SetIsOriginAllowed(origin => true) // allow any origin
+                            .SetIsOriginAllowed(origin => true)
                             .AllowCredentials()); // allow credentials
 
+
+        
             app.UseAuthentication();
             app.UseAuthorization();
 

@@ -28,5 +28,12 @@ namespace Ahoy.Hotel.Repository.Implementaion
             var result = await _dbContext.Hotel.Include(x => x.HotelFacility).ThenInclude(x => x.Facility).ToListAsync();
             return _mapper.Map<List<HotelDto>>(result);
         }
+
+
+        public async Task<HotelDto> Get(int hotelId)
+        {
+            var result = await _dbContext.Hotel.Include(x => x.HotelFacility).ThenInclude(x => x.Facility).FirstOrDefaultAsync(x => x.HotelId == hotelId);
+            return _mapper.Map<HotelDto>(result);
+        }
     }
 }
