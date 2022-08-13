@@ -1,12 +1,14 @@
 ﻿using Ahoy.Hotel.Core.Dtos;
 using Ahoy.Hotel.Repository.Interfaces;
+using Ahoy.Hotel.Service.Interface;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace Ahoy.Hotel.Api.Services
+namespace Ahoy.Hotel.Service.Implementation
 {
     public class BookingService : IBookingService
     {

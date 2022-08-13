@@ -1,8 +1,9 @@
-using Ahoy.Hotel.Api.Services;
 using Ahoy.Hotel.Core;
 using Ahoy.Hotel.EntityFramework.Core;
 using Ahoy.Hotel.Repository.Implementaion;
 using Ahoy.Hotel.Repository.Interfaces;
+using Ahoy.Hotel.Service.Implementation;
+using Ahoy.Hotel.Service.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;

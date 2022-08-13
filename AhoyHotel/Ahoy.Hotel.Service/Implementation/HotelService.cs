@@ -1,11 +1,13 @@
-﻿using System;
-using Ahoy.Hotel.Core.Dtos;
+﻿using Ahoy.Hotel.Core.Dtos;
 using Ahoy.Hotel.Repository.Interfaces;
+using Ahoy.Hotel.Service.Interface;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace Ahoy.Hotel.Api.Services
+namespace Ahoy.Hotel.Service.Implementation
 {
     public class HotelService : IHotelService
     {
