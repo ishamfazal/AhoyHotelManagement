@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ahoy.Hotel.Api", "Ahoy.Hote
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ahoy.Hotel.UnitTest", "Ahoy.Hotel.UnitTest\Ahoy.Hotel.UnitTest.csproj", "{091B6D41-3749-4B98-94A7-19275D8A9655}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ahoy.Hotel.EntityFramework", "Ahoy.Hotel.EntityFramework\Ahoy.Hotel.EntityFramework.csproj", "{76A03798-4D85-4CE0-B95F-752D00367214}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ahoy.Hotel.EntityFramework", "Ahoy.Hotel.EntityFramework\Ahoy.Hotel.EntityFramework.csproj", "{76A03798-4D85-4CE0-B95F-752D00367214}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ahoy.Hotel.Core", "Ahoy.Hotel.Core\Ahoy.Hotel.Core.csproj", "{568AA54D-D0DF-41FA-9CAD-F4A7EFE35FD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ahoy.Hotel.Core", "Ahoy.Hotel.Core\Ahoy.Hotel.Core.csproj", "{568AA54D-D0DF-41FA-9CAD-F4A7EFE35FD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ahoy.Hotel.Repository", "Ahoy.Hotel.Repository\Ahoy.Hotel.Repository.csproj", "{5F2A74E3-F6AF-4A04-9075-FF4974652CD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{568AA54D-D0DF-41FA-9CAD-F4A7EFE35FD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{568AA54D-D0DF-41FA-9CAD-F4A7EFE35FD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{568AA54D-D0DF-41FA-9CAD-F4A7EFE35FD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F2A74E3-F6AF-4A04-9075-FF4974652CD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F2A74E3-F6AF-4A04-9075-FF4974652CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F2A74E3-F6AF-4A04-9075-FF4974652CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F2A74E3-F6AF-4A04-9075-FF4974652CD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

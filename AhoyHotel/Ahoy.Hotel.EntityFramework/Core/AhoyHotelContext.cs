@@ -18,6 +18,5 @@ namespace Ahoy.Hotel.EntityFramework.Core
         {
 
         }
-
     }
 }

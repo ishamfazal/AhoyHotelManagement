@@ -1,21 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Ahoy.Hotel.Core;
 using Ahoy.Hotel.EntityFramework.Core;
+using Ahoy.Hotel.Repository.Implementaion;
+using Ahoy.Hotel.Repository.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace Ahoy.Hotel.Api
 {
@@ -31,6 +28,7 @@ namespace Ahoy.Hotel.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddCors();
             services.AddHttpContextAccessor();
 
@@ -52,6 +50,8 @@ namespace Ahoy.Hotel.Api
             //Dependency Injections
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddDbContext<AhoyHotelContext>(options => options.UseSqlServer(Configuration.GetConnectionString(HotelConst.ConnectionStringName)));
+            services.AddScoped<IHotelRepository, HotelRepository>();
+            services.AddAutoMapper(typeof(AhoyAutoMapper));
 
             services.AddSwaggerGen(c =>
             {
