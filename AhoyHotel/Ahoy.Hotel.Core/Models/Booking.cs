@@ -17,6 +17,7 @@ namespace Ahoy.Hotel.Core.Models
         public string CustomerName { get; set; }
         public string PhoneNumber { get; set; }
         public string BookingReference { get; set; }
+        public string Email { get; set; }
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
         public int NoOfDays { get; set; }
@@ -35,7 +36,6 @@ namespace Ahoy.Hotel.Core.Models
             this.IsActive = true;
             this.CreatedOn = DateTime.UtcNow;
             this.IsDelete = false;
-            this.BookingReference = AhoyUtils.GenerateBookingReference();
         }
 
     }

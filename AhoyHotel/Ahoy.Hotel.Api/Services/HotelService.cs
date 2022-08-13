@@ -23,9 +23,9 @@ namespace Ahoy.Hotel.Api.Services
             return await _hotelRepository.Get(hotelId);
         }
 
-        public async Task<List<HotelDto>> GetAll()
+        public PagedResponsResult<HotelDto> GetAll(string title = "", int page = 1, int pageSize = 20)
         {
-            return await _hotelRepository.GetAll();
+            return _hotelRepository.GetAll(title, page, pageSize);
         }
     }
 }

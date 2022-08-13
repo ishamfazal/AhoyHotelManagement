@@ -6,7 +6,7 @@ namespace Ahoy.Hotel.Api.Services
 {
     public interface IHotelService
     {
-        Task<List<HotelDto>> GetAll();
+        PagedResponsResult<HotelDto> GetAll(string title = "", int page = 1, int pageSize = 20);
 
         Task<HotelDto> Get(int hotelId);
     }
