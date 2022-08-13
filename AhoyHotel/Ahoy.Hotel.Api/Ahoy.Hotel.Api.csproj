@@ -22,11 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ahoy.Hotel.Repository\Ahoy.Hotel.Repository.csproj" />
+    <Folder Include="Filters\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Filters\" />
+    <ProjectReference Include="..\Ahoy.Hotel.Service\Ahoy.Hotel.Service.csproj" />
   </ItemGroup>
 
 

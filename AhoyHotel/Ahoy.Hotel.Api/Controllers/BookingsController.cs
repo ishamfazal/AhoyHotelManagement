@@ -1,5 +1,5 @@
-﻿using Ahoy.Hotel.Api.Services;
-using Ahoy.Hotel.Core.Dtos;
+﻿using Ahoy.Hotel.Core.Dtos;
+using Ahoy.Hotel.Service.Interface;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
