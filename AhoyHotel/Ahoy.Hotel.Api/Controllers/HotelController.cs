@@ -17,12 +17,24 @@ namespace Ahoy.Hotel.Api.Controllers
             _hotelService = hotelService;
         }
 
+        /// <summary>
+        /// Get All Hotel details and Search by Title
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get(string title = "", int page = 1, int pageSize = 20)
         {
             return Ok(_hotelService.GetAll(title, page, pageSize));
         }
 
+        /// <summary>
+        /// Get Specific Hotel Details
+        /// </summary>
+        /// <param name="hotelId"></param>
+        /// <returns></returns>
         [HttpGet("GetById")]
         public async Task<IActionResult> GetById(int hotelId)
         {

@@ -1,6 +1,7 @@
 ﻿using Ahoy.Hotel.Core.Dtos;
 using Ahoy.Hotel.Repository.Interfaces;
 using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -44,6 +45,12 @@ namespace Ahoy.Hotel.Api.Services
         public async Task<BookingDto> Get(int bookingId)
         {
             return await _bookingRepository.Get(bookingId);
+        }
+
+
+        public async Task<List<BookingDto>> CheckAvailablity(int hotelId, DateTime checkInDate, DateTime checkedOutDate)
+        {
+            return await _bookingRepository.CheckAvailablity(hotelId, checkInDate, checkedOutDate);
         }
     }
 }
