@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ahoy.Hotel.Core.Utilities
 {
@@ -27,7 +28,7 @@ namespace Ahoy.Hotel.Core.Utilities
 
     public static class PaginationExtensions
     {
-        public static PagedResult<T> GetPaged<T>(this IQueryable<T> query,
+        public static async Task<PagedResult<T>> GetPagedAsync<T>(this IQueryable<T> query,
                                          int page, int pageSize) where T : class
         {
             var result = new PagedResult<T>
@@ -41,7 +42,7 @@ namespace Ahoy.Hotel.Core.Utilities
             result.PageCount = (int)Math.Ceiling(pageCount);
 
             var skip = (page - 1) * pageSize;
-            result.Results = query.Skip(skip).Take(pageSize).ToList();
+            result.Results = await query.Skip(skip).Take(pageSize).AsNoTracking().ToListAsync();
 
             return result;
         }

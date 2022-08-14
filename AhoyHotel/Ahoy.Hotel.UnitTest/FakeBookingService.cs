@@ -58,7 +58,7 @@ namespace Ahoy.Hotel.UnitTest
             return _bookingDtos.FirstOrDefault(x => x.BookingId == bookingId);
         }
 
-        public PagedResponsResult<BookingDto> GetAll(int page = 1, int pageSize = 20)
+        public async Task<PagedResponsResult<BookingDto>> GetAll(int page = 1, int pageSize = 20)
         {
             return new PagedResponsResult<BookingDto>
             {

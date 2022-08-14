@@ -66,7 +66,7 @@ namespace Ahoy.Hotel.UnitTest
             return _hotelList.Find(x => x.HotelId == hotelId);
         }
 
-        public PagedResponsResult<HotelDto> GetAll(string title = "", int page = 1, int pageSize = 20)
+        public async Task<PagedResponsResult<HotelDto>> GetAll(string title = "", int page = 1, int pageSize = 20)
         {
             var result = new PagedResponsResult<HotelDto>();
             if (!string.IsNullOrEmpty(title))

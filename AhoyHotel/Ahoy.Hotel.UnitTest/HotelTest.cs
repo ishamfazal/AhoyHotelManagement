@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Ahoy.Hotel.UnitTest
@@ -31,7 +32,7 @@ namespace Ahoy.Hotel.UnitTest
         public void GetAll_ReturnAll()
         {
 
-            var okResult = _hotelController.Get() as OkObjectResult;
+            var okResult = _hotelController.Get().Result as OkObjectResult;
             var items = Assert.IsType<PagedResponsResult<HotelDto>>(okResult?.Value);
             Assert.NotEmpty(items.Results);
         }
@@ -40,7 +41,7 @@ namespace Ahoy.Hotel.UnitTest
         public void GetAll_Search()
         {
 
-            var okResult = _hotelController.Get("The first") as OkObjectResult;
+            var okResult = _hotelController.Get("The first").Result as OkObjectResult;
             var items = Assert.IsType<PagedResponsResult<HotelDto>>(okResult?.Value);
             Assert.NotEmpty(items.Results);
         }

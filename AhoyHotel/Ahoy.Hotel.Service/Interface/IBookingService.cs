@@ -8,7 +8,7 @@ namespace Ahoy.Hotel.Service.Interface
 {
     public interface IBookingService
     {
-        public PagedResponsResult<BookingDto> GetAll(int page = 1, int pageSize = 20);
+        Task<PagedResponsResult<BookingDto>> GetAll(int page = 1, int pageSize = 20);
 
         Task<BookingResponseDto> BookHotel(BookingRequestDto requestDto);
 

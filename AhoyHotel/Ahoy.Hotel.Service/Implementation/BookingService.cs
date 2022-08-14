@@ -21,9 +21,9 @@ namespace Ahoy.Hotel.Service.Implementation
             this._mapper = mapper;
         }
 
-        public PagedResponsResult<BookingDto> GetAll(int page = 1, int pageSize = 20)
+        public async Task<PagedResponsResult<BookingDto>> GetAll(int page = 1, int pageSize = 20)
         {
-            return _bookingRepository.GetAll(page, pageSize);
+            return await _bookingRepository.GetAll(page, pageSize);
         }
 
 

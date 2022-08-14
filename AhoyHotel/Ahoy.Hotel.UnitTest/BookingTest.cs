@@ -5,19 +5,19 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Ahoy.Hotel.UnitTest
 {
     public class BookingTest
     {
-        private readonly IBookingService _bookingService;
         private readonly BookingsController _bookingsController;
 
         public BookingTest()
         {
-            _bookingService = new FakeBookingService();
-            _bookingsController = new BookingsController(_bookingService);
+            IBookingService bookingService = new FakeBookingService();
+            _bookingsController = new BookingsController(bookingService);
         }
 
         [Fact]
@@ -37,7 +37,7 @@ namespace Ahoy.Hotel.UnitTest
         [Fact]
         public void GetAll_ReturnAll()
         {
-            var okResult = _bookingsController.Get() as OkObjectResult;
+            var okResult = _bookingsController.Get().Result as OkObjectResult;
             var items = Assert.IsType<PagedResponsResult<BookingDto>>(okResult?.Value);
             Assert.NotEmpty(items.Results);
         }

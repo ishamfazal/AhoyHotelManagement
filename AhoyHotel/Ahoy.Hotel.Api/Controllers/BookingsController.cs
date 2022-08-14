@@ -27,9 +27,9 @@ namespace Ahoy.Hotel.Api.Controllers
         /// <param name="pageSize"></param>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult Get(int page = 1, int pageSize = 20)
+        public async Task<IActionResult> Get(int page = 1, int pageSize = 20)
         {
-            return Ok(_bookingService.GetAll(page, pageSize));
+            return Ok(await _bookingService.GetAll(page, pageSize));
         }
 
         /// <summary>

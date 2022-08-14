@@ -30,19 +30,12 @@ namespace Ahoy.Hotel.Repository.Implementaion
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public PagedResponsResult<HotelDto> GetAll(string title = "", int page = 1, int pageSize = 20)
+        public async Task<PagedResponsResult<HotelDto>> GetAll(string title = "", int page = 1, int pageSize = 20)
         {
             var result = _dbContext.Hotel.Include(x => x.HotelFacility).ThenInclude(x => x.Facility);
             IQueryable<Core.Models.Hotel> query = null;
-            if (!string.IsNullOrEmpty(title))
-            {
-                query = result.Where(x => !x.IsDelete && x.IsActive && x.Title.ToLower().Contains(title.ToLower()));
-            }
-            else
-            {
-                query = result.Where(x => !x.IsDelete && x.IsActive);
-            }
-            var response = query.GetPaged(page, pageSize);
+            query = !string.IsNullOrEmpty(title) ? result.Where(x => !x.IsDelete && x.IsActive && x.Title.ToLower().Contains(title.ToLower())) : result.Where(x => !x.IsDelete && x.IsActive);
+            var response = await query.GetPagedAsync(page, pageSize);
             return _mapper.Map<PagedResponsResult<HotelDto>>(response);
         }
 
