@@ -57,7 +57,7 @@ namespace Ahoy.Hotel.Repository.Implementaion
 
         public async Task<BookingDto> Get(int bookingId)
         {
-            var result = await _dbContext.Booking.Include(x => x.Hotel).ThenInclude(x => x.HotelFacility).ThenInclude(x => x.Facility).FirstOrDefaultAsync(x => !x.IsDelete && x.IsActive && x.BookingId == bookingId);
+            var result = await _dbContext.Booking.Include(x => x.Hotel).ThenInclude(x => x.HotelFacility).ThenInclude(x => x.Facility).AsNoTracking().FirstOrDefaultAsync(x => !x.IsDelete && x.IsActive && x.BookingId == bookingId);
             return _mapper.Map<BookingDto>(result);
         }
 
@@ -76,7 +76,7 @@ namespace Ahoy.Hotel.Repository.Implementaion
                             && (((x.CheckInDate <= checkInDate || checkInDate <= x.CheckOutDate) && checkedOutDate <= x.CheckOutDate)
                             || (checkInDate <= x.CheckInDate && x.CheckOutDate <= checkedOutDate))
                             && x.Status == BookingEnum.Booked.ToString()
-                            && x.HotelId == hotelId)
+                            && x.HotelId == hotelId).AsNoTracking()
                 .ToListAsync();
             return _mapper.Map<List<BookingDto>>(result);
         }
