@@ -14,7 +14,7 @@ namespace Ahoy.Hotel.Core.Utilities
         public static string GenerateBookingReference()
         {
             var currentDate = DateTime.Now;
-            var result = $"{currentDate.ToString("yyyy")}{currentDate.ToString("MM")}{currentDate.ToString("dd")}{currentDate.ToString("hh")}{currentDate.ToString("mm")}{currentDate.ToString("ss")}";
+            var result = $"{currentDate:yyyy}{currentDate:MM}{currentDate:dd}{currentDate:hh}{currentDate:mm}{currentDate:ss}";
             return result;
         }
 
@@ -23,7 +23,7 @@ namespace Ahoy.Hotel.Core.Utilities
         {
             FieldInfo fi = value.GetType().GetField(value.ToString());
 
-            DescriptionAttribute[] attributes = fi.GetCustomAttributes(typeof(DescriptionAttribute), false) as DescriptionAttribute[];
+            DescriptionAttribute[] attributes = fi?.GetCustomAttributes(typeof(DescriptionAttribute), false) as DescriptionAttribute[];
 
             if (attributes != null && attributes.Any())
             {

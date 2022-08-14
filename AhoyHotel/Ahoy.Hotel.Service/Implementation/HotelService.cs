@@ -12,12 +12,10 @@ namespace Ahoy.Hotel.Service.Implementation
     public class HotelService : IHotelService
     {
         private readonly IHotelRepository _hotelRepository;
-        private readonly ILogger<HotelService> _Logger;
 
-        public HotelService(IHotelRepository hotelRepository, ILogger<HotelService> Logger)
+        public HotelService(IHotelRepository hotelRepository, ILogger<HotelService> logger)
         {
             _hotelRepository = hotelRepository;
-            _Logger = Logger;
         }
 
         public async Task<HotelDto> Get(int hotelId)

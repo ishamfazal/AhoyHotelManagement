@@ -13,11 +13,11 @@ namespace Ahoy.Hotel.UnitTest
 {
     internal class FakeBookingService : IBookingService
     {
-        private readonly List<BookingDto> bookingDtos;
+        private readonly List<BookingDto> _bookingDtos;
 
         public FakeBookingService()
         {
-            bookingDtos = new List<BookingDto>()
+            _bookingDtos = new List<BookingDto>()
             {
                 new BookingDto()
                 {
@@ -55,17 +55,17 @@ namespace Ahoy.Hotel.UnitTest
 
         public async Task<BookingDto> Get(int bookingId)
         {
-            return bookingDtos.FirstOrDefault(x => x.BookingId == bookingId);
+            return _bookingDtos.FirstOrDefault(x => x.BookingId == bookingId);
         }
 
         public PagedResponsResult<BookingDto> GetAll(int page = 1, int pageSize = 20)
         {
             return new PagedResponsResult<BookingDto>
             {
-                Results = bookingDtos,
+                Results = _bookingDtos,
                 CurrentPage = page,
                 PageSize = pageSize,
-                PageCount = bookingDtos.Count
+                PageCount = _bookingDtos.Count
             };
         }
     }

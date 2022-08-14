@@ -14,11 +14,11 @@ namespace Ahoy.Hotel.Api.Controllers
     [ApiExplorerSettings(IgnoreApi = true)]
     public class ErrorsController : ControllerBase
     {
-        private readonly ILogger<ErrorsController> _Logger;
+        private readonly ILogger<ErrorsController> _logger;
 
         public ErrorsController(ILogger<ErrorsController> logger)
         {
-            _Logger = logger;
+            _logger = logger;
         }
 
         [Route("error")]
@@ -28,7 +28,7 @@ namespace Ahoy.Hotel.Api.Controllers
             var exception = context.Error; 
             var code = 500; 
             Response.StatusCode = code;
-            _Logger.LogError(exception, exception.Message);
+            _logger.LogError(exception, exception.Message);
             return new AhoyExceptionResponse(exception);
         }
     }

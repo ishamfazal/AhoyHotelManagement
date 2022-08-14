@@ -82,7 +82,7 @@ namespace Ahoy.Hotel.Api
                 {
                     Version = "v1",
                     Title = "Ahoy Hotel API",
-                    Description = "API mangement tool for Ahoy Hotel Management",
+                    Description = "API management tool for Ahoy Hotel Management",
                 });
             });
 

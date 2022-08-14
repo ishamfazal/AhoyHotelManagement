@@ -20,7 +20,6 @@ namespace Ahoy.Hotel.Api
             //Seeding values for hotel
             using (var scope = host.Services.CreateScope())
             {
-                var services = scope.ServiceProvider;
                 var context = scope.ServiceProvider.GetService<AhoyHotelContext>();
                 new AhoySeed(context).Create();
             }

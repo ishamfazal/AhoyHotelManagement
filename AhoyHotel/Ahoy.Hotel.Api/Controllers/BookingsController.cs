@@ -57,7 +57,7 @@ namespace Ahoy.Hotel.Api.Controllers
         }
 
         /// <summary>
-        /// Check availablity of the hotel before booking
+        /// Check availability of the hotel before booking
         /// </summary>
         /// <param name="hotelId"></param>
         /// <param name="checkInDate"></param>

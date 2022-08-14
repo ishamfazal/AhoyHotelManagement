@@ -12,14 +12,12 @@ namespace Ahoy.Hotel.Service.Implementation
 {
     public class BookingService : IBookingService
     {
-        private readonly IHotelRepository _hotelRepository;
         private readonly IBookingRepository _bookingRepository;
         private readonly IMapper _mapper;
 
         public BookingService(IBookingRepository bookingRepository, IHotelRepository hotelRepository, IMapper mapper)
         {
             this._bookingRepository = bookingRepository;
-            this._hotelRepository = hotelRepository;
             this._mapper = mapper;
         }
 
